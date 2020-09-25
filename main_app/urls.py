@@ -1,6 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
+
 urlpatterns = [
-    path('', views.WackyCreate.as_view(), name='index'),
+    path('', views.index, name='index'),
 ]

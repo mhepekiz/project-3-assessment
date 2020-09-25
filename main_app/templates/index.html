@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +27,55 @@
       </section>
 
 
+    <hr>
+    {% if wacky_list|length == 0 %}
+            <section class="hero is-danger">
+                <div class="hero-body">
+                    <div class="container">
+                    <h1 class="title">
+                      No items yet
+                    </h1>
+                  </div>
+                </div>
+              </section>
+              {% else %}
+    <div class="column is-full">
+       
+       
+        <div class="columns">
+            <div class="column is-4"></div>
+            <div class="column is-4">
+                
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Del</th>
+            </tr>
+          </thead>
+          <tbody>
 
-</body>
-</html>
+            {% for wacky in wacky_list %} 
+            <tr>
+              <td>{{ wacky.item }}</td>
+              <td>{{ wacky.quant }}</td>
+              <td><a href="{% url 'delete_wacky' wacky.id %}"><button  class="button is-danger">X</button></a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+    </div>
+    <div class="column is-4"></div>
+  </div>
+
+
+      </div>
+    {% endif %}
+    <hr>
+   
+  
+    
+  </body>
+  </html>
