@@ -18,3 +18,7 @@ def add_wacky(request):
         add_wacky = form.save()
     return redirect('/')
 
+
+def delete_wacky(request, id):
+    Wacky.objects.get(id=id).delete()
+    return redirect('/')

@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Project 3 Assessment</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
@@ -60,7 +61,7 @@
             <tr>
               <td>{{ wacky.item }}</td>
               <td>{{ wacky.quant }}</td>
-              <td><a href="{% url 'delete_wacky' wacky.id %}"><button  class="button is-danger">X</button></a></td>
+              <td align="center"><a href="{% url 'delete_wacky' wacky.id %}"><button  class="button is-danger">X</button></a></td>
             </tr>
             {% endfor %}
           </tbody>
@@ -74,7 +75,35 @@
       </div>
     {% endif %}
     <hr>
-   
+    <table><tr><td align="center">
+
+  
+        <form class="form" action="{% url 'add_wacky' %}" method="POST">
+            {% csrf_token %}
+           <div class="columns">
+             <div class="column is-4"></div>
+             <div class="column is-4">
+            <div class="field">
+              <label for="id_item" class="label">Description</label>
+              <div class="control">
+                <input class="input" type="text" name="item" id="id_item" placeholder="Item description" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="id_quant" class="label">Quantity</label>
+              <div class="control">
+                <input class="input" type="text" name="quant" id="id_quant" placeholder="Quantity" required>
+              </div>
+            </div>
+            <input type="submit" class="button is-danger" value="Add Wacky">
+        </form>
+      
+
+    </div>
+    <div class="column is-4"></div>
+  </div>
+    </td></tr></table>
+  
   
     
   </body>
