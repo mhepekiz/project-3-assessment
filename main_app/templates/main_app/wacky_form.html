@@ -1,0 +1,92 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+  
+</head>
+<body>
+
+    <section class="hero is-warning">
+        <div class="hero-body">
+            <div class="container">
+            <h1 class="title">
+              Wacky Widgets
+            </h1>
+            <h2 class="subtitle">
+              A project assessment story
+            </h2>
+          </div>
+        </div>
+      </section>
+
+
+    <hr>
+    {% if wackies|length == 0 %}
+            <section class="hero is-danger">
+                <div class="hero-body">
+                    <div class="container">
+                    <h1 class="title">
+                      No items yet
+                    </h1>
+                  </div>
+                </div>
+              </section>
+              {% endif %}
+    <div class="column is-full">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>One</th>
+              <th>Two</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for wacky in wackies %} 
+            <tr>
+              <td>wacky.id</td>
+              <td>dsfsdfsfsd</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    
+    <hr>
+    <table><tr><td align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+       <div class="columns">
+         <div class="column is-4"></div>
+         <div class="column is-4">
+        <div class="field">
+          <label for="id_item" class="label">Description</label>
+          <div class="control">
+            <input class="input" type="text" name="item" id="id_item" placeholder="Item description" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="id_quant" class="label">Quantity</label>
+          <div class="control">
+            <input class="input" type="text" name="quant" id="id_quant" placeholder="Quantity" required>
+          </div>
+        </div>
+        <input type="submit" class="button is-danger" value="Add Wacky">
+    </form>
+  </div>
+  <div class="column is-4"></div>
+</div>
+  </td></tr></table>
+
+
+  
+</body>
+</html>

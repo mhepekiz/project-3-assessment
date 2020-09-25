@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
-from .models import Todo
+from .models import Wacky
 # Create your views here.
 def index(request):
-    todos = Todo.objects.all()
-    return render(request, 'index.html', {'todos': todos})
+    wackies = Wacky.objects.all()
+    return render(request, 'index.html', {'wackies': wackies})
 
-class TodoCreate(CreateView):
-    model = Todo
+class WackyCreate(CreateView):
+    model = Wacky
     fields = '__all__'
 
