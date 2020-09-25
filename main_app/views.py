@@ -9,8 +9,7 @@ def index(request):
     wacky_list = Wacky.objects.all()
     wacky_form = WackyForm()
   
-    return render(request, 'index.html', {'wacky_list': wacky_list, 'wacky_form': wacky_form,
-    })
+    return render(request, 'index.html', {'wacky_list': wacky_list, 'wacky_form': wacky_form })
 
 def add_wacky(request):
     form = WackyForm(request.POST)
